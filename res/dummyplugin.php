@@ -197,12 +197,6 @@ function {pluginname}_uninstall()
 		$page->output_confirm_action('index.php?module=config-plugins&action=deactivate&uninstall=1&plugin={pluginname}', $lang->{pluginname}_uninstall_message, $lang->{pluginname}_uninstall);
 	}
 
-	// Delete Columns
-	//$db->query( 'ALTER TABLE '.TABLE_PREFIX.'users DROP COLUMN `level`' );
-
-	// Drop Tables
-	//$db->drop_table( 'mylevels' );
-
 	// Delete settings group
 	$gid = $db->fetch_field( $db->simple_select( 'settinggroups', 'gid', 'name=\''.{pluginnameUppercase}_PLUGIN_NAME.'\'' ), 'gid' );
 	$db->delete_query('settinggroups', "name='".{pluginnameUppercase}_PLUGIN_NAME."'");
